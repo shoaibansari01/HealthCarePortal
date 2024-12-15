@@ -1,0 +1,201 @@
+:root {
+  --primary-dark: #1a237e;
+  --primary-main: #3f51b5;
+  --primary-light: #7986cb;
+  --secondary-dark: #004d40;
+  --secondary-main: #009688;
+  --secondary-light: #4db6ac;
+  --hover-color: #2196f3;
+  --text-light: #ffffff;
+  --text-dark: #1a237e;
+  --background-light: rgba(255, 255, 255, 0.95);
+  --background-dark: rgba(26, 35, 126, 0.98);
+  --gradient-start: #3f51b5;
+  --gradient-end: #009688;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-scrolled {
+  background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.navbar-logo a {
+  text-decoration: none;
+}
+
+.navbar-logo h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ffffff, #e3f2fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.logo-health {
+  color: var(--text-light);
+}
+
+.logo-care {
+  color: var(--secondary-light);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link:hover .nav-icon {
+  transform: scale(1.1);
+}
+
+/* Specific link styles */
+.admin:hover {
+  background: linear-gradient(45deg, #1a237e, #283593);
+}
+
+.doctor:hover {
+  background: linear-gradient(45deg, #0277bd, #0288d1);
+}
+
+.appointment:hover {
+  background: linear-gradient(45deg, #00838f, #0097a7);
+}
+
+.patient:hover {
+  background: linear-gradient(45deg, #00695c, #00796b);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+.mobile-menu-btn span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-light);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn.active span {
+  background-color: var(--primary-main);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 1rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+    flex-direction: column;
+    padding: 80px 2rem 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+    gap: 1.5rem;
+  }
+
+  .navbar-links.active {
+    right: 0;
+  }
+
+  .nav-link {
+    width: 100%;
+    justify-content: flex-start;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+  }
+
+  .nav-link:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-logo h2 {
+    font-size: 1.5rem;
+  }
+
+  .navbar-links {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Add padding to body to account for fixed navbar */
+body {
+  padding-top: 80px;
+}
